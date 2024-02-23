@@ -17,4 +17,10 @@
     <insert id="registReport" parameterType="com.companimal.report.model.dto.ReportDTO">
 
     </insert>
+
+    <delete id="delete" parameterType="_int">
+        DELETE
+          FROM tbl_tbl_report
+         WHERE rep_no = #{ code }
+    </delete>
 </mapper>
