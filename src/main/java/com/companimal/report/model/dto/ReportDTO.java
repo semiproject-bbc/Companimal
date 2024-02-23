@@ -3,7 +3,7 @@ package com.companimal.report.model.dto;
 
 import java.sql.Date;
 
-public class ReportDTO {
+public class ReportDTO implements java.io.Serializable {
 
     private int repNo;              // 신고 번호
     private String repTitle;        // 신고 제목
