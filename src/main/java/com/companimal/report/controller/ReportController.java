@@ -5,10 +5,13 @@ import com.companimal.report.model.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 @Controller
 public class ReportController {
 
-    private ReportService reportService;
+    private final ReportService reportService;
 
     @Autowired
     public ReportController(ReportService reportService) {
@@ -18,7 +21,6 @@ public class ReportController {
     public void registReport(ReportDTO newReport) {
 
         reportService.registReport(newReport);
-
     }
 
 }

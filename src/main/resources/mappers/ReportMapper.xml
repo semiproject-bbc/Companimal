@@ -14,7 +14,7 @@
         <result property="REP_DEP" column="repDep"/>
     </resultMap>
 
-    <insert id="registReport" parameterType="com.companimal.report.model.dto.ReportDTO">
+    <insert id="registReport" parameterType="com.companimal.report.model.dto.ReportDTO" >
         INSERT INTO tbl_report (
                                 REP_NO
                                 ,REP_TITLE
