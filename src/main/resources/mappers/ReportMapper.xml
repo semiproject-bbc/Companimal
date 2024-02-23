@@ -5,13 +5,13 @@
 <mapper namespace="com.companimal.report.model.dao.ReportMapper">
 
     <resultMap id="reportResultMap" type="com.companimal.report.model.dto.ReportDTO">
-        <id property="REP_NO" column="repNo"/>
-        <result property="REP_TITLE" column="repTitle"/>
-        <result property="REP_DATE" column="repDate"/>
-        <result property="REP_REASON" column="repReason"/>
-        <result property="REP_RESULT" column="repResult"/>
-        <result property="REP_PERSON" column="repPerson"/>
-        <result property="REP_DEP" column="repDep"/>
+        <id property="repNo" column="REP_NO"/>
+        <result property="repTitle" column="REP_TITLE"/>
+        <result property="repDate" column="REP_DATE"/>
+        <result property="repReason" column="REP_REASON"/>
+        <result property="repResult" column="REP_RESULT"/>
+        <result property="repPerson" column="REP_PERSON"/>
+        <result property="repDep" column="REP_DEP"/>
     </resultMap>
 
     <insert id="registReport" parameterType="com.companimal.report.model.dto.ReportDTO" >
@@ -34,4 +34,17 @@
                 ,#{ repDep }
                 )
     </insert>
+
+    <select id="selectReportList" resultMap="reportResultMap">
+
+        SELECT
+              REP_NO
+            , REP_TITLE
+            , REP_DATE
+            , REP_REASON
+            , REP_RESULT
+            , REP_PERSON
+            , REP_DEP
+        FROM tbl_report
+    </select>
 </mapper>

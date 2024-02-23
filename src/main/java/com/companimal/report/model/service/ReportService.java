@@ -7,21 +7,23 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
+import java.util.List;
 
 @Service
 public class ReportService {
 
     private ReportMapper reportMapper;
-    private SqlSessionTemplate sqlSession;
 
-    public ReportService(SqlSessionTemplate sqlSession) {
-        this.sqlSession = sqlSession;
+    public ReportService(SqlSessionTemplate sqlSession, ReportMapper reportMapper) {
+        this.reportMapper = reportMapper;
     }
 
     @Transactional
     public void registReport(ReportDTO newReport) {
-//        reportMapper.registReport(newReport);
-        sqlSession.getMapper(ReportMapper.class).registReport(newReport);
+        int result =  reportMapper.registReport(newReport);
+        // 참고 insert, update, delete의 결과는 항상 성공한 행의 갯수를 반환
+        // 고로 무조건 int
+        System.out.println(result);
 
     }
 
@@ -38,5 +40,12 @@ public class ReportService {
         newReport.setRepDep("댓글");
 
         return newReport;
+    }
+
+    public List<ReportDTO> selectReportList() {
+
+        List<ReportDTO> reportList = reportMapper.selectReportList();
+        System.out.println("reportList = " + reportList);
+        return reportList;
     }
 }
