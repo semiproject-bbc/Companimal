@@ -15,6 +15,23 @@
     </resultMap>
 
     <insert id="registReport" parameterType="com.companimal.report.model.dto.ReportDTO">
-
+        INSERT INTO tbl_report (
+                                REP_NO
+                                ,REP_TITLE
+                                ,REP_DATE
+                                ,REP_REASON
+                                ,REP_RESULT
+                                ,REP_PERSON
+                                ,REP_DEP
+                                )
+        VALUES (
+                #{ repNo }
+                ,#{ repTitle }
+                ,#{ repDate }
+                ,#{ repReason }
+                ,#{ repResult }
+                ,#{ repPerson }
+                ,#{ repDep }
+                )
     </insert>
 </mapper>
