@@ -47,4 +47,10 @@
             , REP_DEP
         FROM tbl_report
     </select>
+
+    <delete id="deleteReport" parameterType="_int">
+        DELETE
+          FROM mvctestdb
+         WHERE REP_NO = #{ code }
+    </delete>
 </mapper>

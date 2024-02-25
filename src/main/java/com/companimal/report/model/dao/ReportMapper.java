@@ -11,4 +11,6 @@ public interface ReportMapper {
     int registReport(ReportDTO newReport);
 
     List<ReportDTO> selectReportList();
+
+    int deleteReport(int code);
 }

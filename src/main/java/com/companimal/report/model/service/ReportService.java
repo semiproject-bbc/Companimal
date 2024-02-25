@@ -48,4 +48,10 @@ public class ReportService {
         System.out.println("reportList = " + reportList);
         return reportList;
     }
+
+    @Transactional
+    public void deleteReport(int code) {
+        int result = reportMapper.deleteReport(code);
+
+    }
 }

@@ -35,4 +35,10 @@ public class ReportController {
         reportService.registReport(newReport);
     }
 
+    public void deleteReport(int code) {
+        code = 1;
+
+        reportService.deleteReport(code);
+    }
+
 }
