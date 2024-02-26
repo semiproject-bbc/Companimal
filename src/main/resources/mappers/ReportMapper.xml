@@ -16,8 +16,7 @@
 
     <insert id="registReport" parameterType="com.companimal.report.model.dto.ReportDTO" >
         INSERT INTO tbl_report (
-                                REP_NO
-                                ,REP_TITLE
+                                REP_TITLE
                                 ,REP_DATE
                                 ,REP_REASON
                                 ,REP_RESULT
@@ -25,8 +24,7 @@
                                 ,REP_DEP
                                 )
         VALUES (
-                #{ repNo }
-                ,#{ repTitle }
+                #{ repTitle }
                 ,#{ repDate }
                 ,#{ repReason }
                 ,#{ repResult }
@@ -47,4 +45,17 @@
             , REP_DEP
         FROM tbl_report
     </select>
+
+    <update id="updateReport" parameterType="com.companimal.report.model.dto.ReportDTO">
+        UPDATE tbl_report
+           SET REP_RESULT = #{ repResult }
+         WHERE REP_NO = #{ repNo }
+    </update>
+
+    <delete id="deleteReport" parameterType="_int">
+        DELETE FROM tbl_report
+         WHERE REP_NO = #{ repNo }
+    </delete>
+
+
 </mapper>
